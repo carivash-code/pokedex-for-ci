@@ -90,6 +90,7 @@ jobs:
       - name: E2E tests
         uses: cypress-io/github-action@v2
         with:
+          install-command: npm i --immutable --immutable-cache
           command: npm run test:e2e
           start: npm run start-test
           wait-on: http://localhost:5000
