@@ -82,7 +82,7 @@ jobs:
           cache: "npm"
           node-version: "14"
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --immutable --immutable-cache
       - uses: actions/download-artifact@v2
         with:
           name: dist
@@ -90,7 +90,7 @@ jobs:
       - name: E2E tests
         uses: cypress-io/github-action@v2
         with:
-          install-command: npm i --immutable --immutable-cache
+          install-command: npm ci --immutable --immutable-cache
           command: npm run test:e2e
           start: npm run start-test
           wait-on: http://localhost:5000
